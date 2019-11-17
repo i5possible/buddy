@@ -1,0 +1,29 @@
+.header {
+    display: block;
+    background-color: turquoise;
+    height: 64px;
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    list-style: none;
+    /* width: 60%; */
+    margin: 0 0 0 20%;
+    height: 100%;
+}
+
+.tab {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
