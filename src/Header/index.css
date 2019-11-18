@@ -1,21 +1,41 @@
 .header {
-    display: block;
+    display: flex;
     background-color: turquoise;
     height: 64px;
+    justify-content: center;
 }
+
+.header-content {
+    display: flex;
+    height: 100%;
+    width: 90%;
+    max-width: 1260;
+}
+
+.logo {
+    display: inline-block;
+    height: 100%;
+}
+
+.nav-wrapper {
+    flex: 1;
+    display: inline-block;
+    height: 100%;
+}
+
 .nav {
     display: flex;
     flex-direction: row;
     align-content: center;
     list-style: none;
-    /* width: 60%; */
-    margin: 0 0 0 20%;
     height: 100%;
 }
 
 .tab {
     width: 200px;
+    font-size: 1.6rem;
     display: flex;
+    flex: 2;
     align-items: center;
     justify-content: center;
 }
