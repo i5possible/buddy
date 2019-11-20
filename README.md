@@ -1,9 +1,9 @@
 # Buddy
 
-Buddy will help you become better
+Buddy will grow with you all the way!
 
 ## Micro Habit
-- Eat healthy
+- Eat healthily
 - Sleep well
 - Keep fit
 - Mediation
