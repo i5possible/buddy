@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import TodoList from './TodoList'
 
 /**
  * Habit list
@@ -9,7 +10,7 @@ import './index.css';
 const MiniHabit = () => {
     return (
         <div>
-            <span>Mini habit</span>
+            <TodoList />
         </div>
     );
 }
