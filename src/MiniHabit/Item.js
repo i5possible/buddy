@@ -4,8 +4,8 @@ import './Item.css';
 const Item = ({ name }) => {
     return (
         <>
-            <input type='checkbox'></input>
-            <lable> {name} </lable>
+            <input className='checkbox' type='checkbox'></input>
+            <lable className='item-name'> {name} </lable>
         </>
     );
 }

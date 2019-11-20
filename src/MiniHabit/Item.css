@@ -1,3 +1,13 @@
-.item {
+.item-name {
+    font-size: 1.2rem;
+    margin-left: 4px;
+}
+.checkbox {
+    height: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
 
+input[type="checkbox"] {
+    transform: scale(1.5, 1.5);
 }

@@ -8,9 +8,10 @@ import TodoList from './TodoList'
  * Habit Achieve
  */
 const MiniHabit = () => {
+    const tasks = [{name: 'First Task'}, { name: 'Second Task'}];
     return (
         <div>
-            <TodoList />
+            <TodoList tasks={tasks}/>
         </div>
     );
 }
