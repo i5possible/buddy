@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from './Header/index.js'
-import MiniHabit from './MiniHabit/index.js'
+import Header from './Header'
+import MiniHabit from './MiniHabit'
+import Content from './Content'
 import {
     BrowserRouter as Router,
     Switch,
@@ -9,25 +10,26 @@ import {
 } from "react-router-dom";
 
 const App = () => {
+    const routes = (
+        <Switch>
+            <Route exact path="/">
+                <Home />
+            </Route>
+            <Route path="/habit">
+                <MiniHabit />
+            </Route>
+            <Route path="/memory">
+                <MiniHabit />
+            </Route>
+            <Route path="/principle">
+                <MiniHabit />
+            </Route>
+        </Switch>
+    );
     return (
         <Router>
             <Header />
-            <div>
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/habit">
-                        <MiniHabit />
-                    </Route>
-                    <Route path="/memory">
-                        <MiniHabit />
-                    </Route>
-                    <Route path="/principle">
-                        <MiniHabit />
-                    </Route>
-                </Switch>
-            </div>
+            <Content children={routes} />
         </Router>
     );
 }
