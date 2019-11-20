@@ -1,11 +1,11 @@
 import React from 'react';
-import {style} from './index.scss';
+import './index.css';
 
-const Content = ({}) => {
+const Content = ({ children }) => {
 
     return (
-        <div className={style}>
-            
+        <div className='content'>
+            {children}
         </div>
     );
 };

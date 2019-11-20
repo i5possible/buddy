@@ -8,20 +8,20 @@ const Navigation = () => <div className='nav-wrapper'>
             <Link to="/" className='link'>Home</Link>
         </li>
         <li className='tab'>
-            <Link to="/mini-habit" className='link'>Mini Habit</Link>
+            <Link to="/habit" className='link'>Habit</Link>
         </li>
         <li className='tab'>
+            <Link to='/memory' className='link'>Memory</Link>
         </li>
         <li className='tab'>
+            <Link to='/principle' className='link'>Principle</Link>
         </li>
     </div>
 </div>;
 
-const Icon = () => <img src='logo192.png' className='logo' alt='BUDDY'></img>
+const Icon = () => <img src='buddy.png' className='logo' alt='buddy'></img>
 
 const Header = ({ }) => {
-
-
     return (
         <div className='header' >
             <div className='header-content'>

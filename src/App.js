@@ -17,7 +17,13 @@ const App = () => {
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route path="/mini-habit">
+                    <Route path="/habit">
+                        <MiniHabit />
+                    </Route>
+                    <Route path="/memory">
+                        <MiniHabit />
+                    </Route>
+                    <Route path="/principle">
                         <MiniHabit />
                     </Route>
                 </Switch>
