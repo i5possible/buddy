@@ -11,3 +11,7 @@
 .item-wrapper {
     margin: 5px 0;
 }
+
+.checked {
+    text-decoration: line-through;
+}

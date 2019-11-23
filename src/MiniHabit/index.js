@@ -10,9 +10,14 @@ import TodoList from './TodoList'
 const MiniHabit = () => {
     const tasks = [{name: 'First Task'}, { name: 'Second Task'}];
     return (
-        <div>
-            <TodoList tasks={tasks}/>
-        </div>
+        <>
+            <div>
+                Today's target
+            </div>
+            <div>
+                <TodoList tasks={tasks}/>
+            </div>
+        </>
     );
 }
 

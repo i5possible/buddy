@@ -2,3 +2,7 @@
     padding: 10%;
     display: flex;
 }
+
+.contentTitle {
+    display: inline-block;
+}
