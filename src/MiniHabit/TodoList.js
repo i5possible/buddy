@@ -6,8 +6,8 @@ const TodoList = ({ tasks }) => {
     return (
         <div className='tasks'>
             {tasks.map(task => (
-                <Item name={task.name} />
-            ))};
+                <Item key={task.name} name={task.name} />
+            ))}
         </div>
     );
 }

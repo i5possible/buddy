@@ -1,0 +1,10 @@
+.subTitle {
+    font-size: 1.6rem;
+}
+
+.subTitleWrapper {
+    background: var(--dark);
+    color: var(--light);
+    text-align: center;
+    padding: 5px;
+}

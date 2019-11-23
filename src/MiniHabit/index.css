@@ -1,3 +1,6 @@
-.shadow {
-    bax-shadow: 0 7px 30px rgba(140, 133, 156, 0.1);
+.habitWrapper {
+    background-color: white;
+    box-shadow: 0px 7px 20px 5px var(--shadow);
+    width:50%;
+    height: 80%;
 }

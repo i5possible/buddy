@@ -1,7 +1,7 @@
 .header {
     display: flex;
     background-color: turquoise;
-    height: 64px;
+    height: var(--header-height);
     justify-content: center;
 }
 
@@ -40,10 +40,17 @@
     justify-content: center;
 }
 
+.tab:hover {
+    background: var(--p-dark);
+}
+
 .link {
     display: flex;
     align-content: center;
     justify-content: center;
     text-decoration: none;
+    line-height: var(--header-height);
     color: white;
+    height: 100%;
+    width: 100%;
 }

@@ -21,7 +21,7 @@ const Navigation = () => <div className='nav-wrapper'>
 
 const Icon = () => <img src='buddy.png' className='logo' alt='buddy'></img>
 
-const Header = ({ }) => {
+const Header = () => {
     return (
         <div className='header' >
             <div className='header-content'>

@@ -2,7 +2,7 @@ import React from 'react';
 import './Item.css';
 
 // class Item extends React.Component {
-    
+
 //     constructor(props) {
 //         super(props);
 //         this.state = {
@@ -62,18 +62,23 @@ const Item = ({ name }) => {
     const [checked, setChecked] = React.useState(false);
 
     const onChange = (e) => {
-        setChecked(e.target.checked);
+        setChecked(!checked);
     }
 
     return (
         <div className='item-wrapper'>
-            <input 
+            {/* <input 
                 className='checkbox' 
                 checked={checked}
                 type='checkbox' 
                 onChange={onChange}>
-            </input>
-            <label className='item-name'> {name} </label>
+            </input> */}
+            {/* <label className='item-name'> {name} </label> */}
+
+            <button className={checked ? 'text-button checked' : 'text-button'}
+                onClick={onChange}> 
+                {name} 
+            </button>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
-import TodoList from './TodoList'
+import TodoList from './TodoList';
+import SubTitle from './SubTitle';
 
 /**
  * Habit list
@@ -10,14 +11,10 @@ import TodoList from './TodoList'
 const MiniHabit = () => {
     const tasks = [{name: 'First Task'}, { name: 'Second Task'}];
     return (
-        <>
-            <div>
-                Today's target
-            </div>
-            <div>
-                <TodoList tasks={tasks}/>
-            </div>
-        </>
+        <div className='habitWrapper'>
+            <SubTitle title={'Today\'s Target'}/>
+            <TodoList tasks={tasks}/>
+        </div>
     );
 }
 
