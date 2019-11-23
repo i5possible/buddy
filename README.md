@@ -3,12 +3,20 @@
 Buddy will grow with you all the way!
 
 ## Micro Habit
+
+### Habit Lists
 - Eat healthily
 - Sleep well
 - Keep fit
 - Mediation
 - Be happy
 - Be satisfied
+
+### Manage Habit
+- Add
+- Delete
+- Daily/Weekly/Monthly Attendance
+- Tag
 
 ## Memory Helper
 - TODOs
