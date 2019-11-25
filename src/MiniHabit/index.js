@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import './index.css';
 import TodoList from './TodoList';
 import SubTitle from './SubTitle';
 
-/**
- * Habit list
- * Add Habit
- * Habit Achieve
- */
 const MiniHabit = () => {
-    const tasks = [{name: 'First Task'}, { name: 'Second Task'}];
+    const tasksReducer = (tasks, action) => {
+        console.log(action);
+        console.log(tasks);
+        switch (action.type) {
+            case 'check':
+                return tasks.map(task => {
+                    if (task.name === action.task.name) {
+                        return {
+                            name: task.name,
+                            completed: !action.task.completed,
+                        }
+                    }
+                    return task;
+                })
+
+            default:
+                break;
+        }
+        return tasks;
+    }
+
+    const initialState = [{ name: 'First Task', completed: false, }, { name: 'Second Task', completed: false }];
+
+    const [tasks, dispatch] = useReducer(tasksReducer, initialState);
+    console.log(tasks);
+    const remainTasksCount = tasks.filter(task => !task.completed).length;
+
     return (
         <div className='habitWrapper'>
-            <SubTitle title={'Today\'s Target'}/>
-            <TodoList tasks={tasks}/>
+            <SubTitle title={remainTasksCount === 0 ? 'All goal achieved!' : 'Goal to achieve: ' + remainTasksCount} />
+            <TodoList tasks={tasks} dispatch={dispatch} />
         </div>
     );
 }
