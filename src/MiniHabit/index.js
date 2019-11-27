@@ -47,6 +47,7 @@ const MiniHabit = () => {
     }
     const storedTasks = getFromLocalStore();
     console.log('storedTasks: {}', storedTasks);
+
     const initialState = isEmpty(storedTasks)
         ? [{ name: 'First Task', completed: false, }, { name: 'Second Task', completed: false }]
         : storedTasks;
@@ -54,12 +55,18 @@ const MiniHabit = () => {
     const [tasks, dispatch] = useReducer(tasksReducer, initialState);
     console.log(tasks);
     saveToLocalStore(tasks);
+
     const remainTasksCount = tasks.filter(task => !task.completed).length;
 
     return (
         <div className='habitWrapper'>
-            <SubTitle title={remainTasksCount === 0 ? 'All goal achieved!' : 'Goal to achieve: ' + remainTasksCount} />
-            <TodoList tasks={tasks} dispatch={dispatch} />
+            <div className='habitList'>
+                <SubTitle title={remainTasksCount === 0 ? 'All goal achieved!' : 'Goal to achieve: ' + remainTasksCount} />
+                <TodoList tasks={tasks} dispatch={dispatch} />
+            </div>
+            <div className='habitManager'>
+                <SubTitle title='Habit Manager' />
+            </div>
         </div>
     );
 }
