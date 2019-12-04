@@ -1,30 +1,13 @@
 import React, { useReducer } from 'react';
+import { connect } from 'react-redux'
 import './index.css';
 import TodoList from './TodoList';
 import SubTitle from './SubTitle';
+import utils from '../../utils';
 
-const isEmpty = (obj) => {
-    if (!obj && obj !== 0 && obj !== '') {
-        return true;
-    }
-    if (Array.prototype.isPrototypeOf(obj) && obj.length === 0) {
-        return true;
-    }
-    if (Object.prototype.isPrototypeOf(obj) && Object.keys(obj).length === 0) {
-        return true;
-    }
-    return false;
-}
+const { isEmpty, saveToLocalStore, getFromLocalStore } = utils;
 
 const MiniHabit = () => {
-
-    const saveToLocalStore = (tasks) => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
-
-    const getFromLocalStore = () => {
-        return JSON.parse(localStorage.getItem('tasks'));
-    }
 
     const tasksReducer = (tasks, action) => {
         switch (action.type) {
@@ -38,14 +21,14 @@ const MiniHabit = () => {
                     }
                     return task;
                 })
-                saveToLocalStore(newTasks);
+                saveToLocalStore("tasks", newTasks);
                 return newTasks;
             default:
                 break;
         }
         return tasks;
     }
-    const storedTasks = getFromLocalStore();
+    const storedTasks = getFromLocalStore("tasks");
     console.log('storedTasks: {}', storedTasks);
 
     const initialState = isEmpty(storedTasks)
@@ -54,7 +37,7 @@ const MiniHabit = () => {
 
     const [tasks, dispatch] = useReducer(tasksReducer, initialState);
     console.log(tasks);
-    saveToLocalStore(tasks);
+    saveToLocalStore("tasks", tasks);
 
     const remainTasksCount = tasks.filter(task => !task.completed).length;
 
@@ -71,4 +54,12 @@ const MiniHabit = () => {
     );
 }
 
-export default MiniHabit;
+const mapStateToProps = (state, ownProps) => ({
+
+});
+
+const mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps)(MiniHabit);

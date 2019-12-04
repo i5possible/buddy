@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from './Header'
-import MiniHabit from './MiniHabit'
-import Content from './Content'
+import Header from './Component/Header'
+import MiniHabit from './Component/MiniHabit'
+import Content from './Component/Content'
 import {
     BrowserRouter as Router,
     Switch,
