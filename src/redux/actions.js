@@ -2,11 +2,11 @@ import { ADD_HABIT } from "./actionTypes";
 
 let nextHabitId = 0;
 
-export const addTodo = content => ({
+export const addHabit = name => ({
     type: ADD_HABIT,
-    payload: {
+    data: {
         id: ++nextHabitId,
-        content
+        name: name,
     }
 });
 

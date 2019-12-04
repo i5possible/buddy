@@ -22,3 +22,10 @@
     right: 10%;
     top: calc(64px + 3rem);
 }
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: white;
+}

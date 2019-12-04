@@ -1,65 +1,39 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import './index.css';
-import TodoList from './TodoList';
 import SubTitle from './SubTitle';
-import utils from '../../utils';
+import { addHabit } from "../../redux/actions";
+import Item from "./Item";
 
-const { isEmpty, saveToLocalStore, getFromLocalStore } = utils;
+const MiniHabit = ({ habits, addHabit }) => {
 
-const MiniHabit = () => {
+    const [input, setInput] = useState("");
 
-    const tasksReducer = (tasks, action) => {
-        switch (action.type) {
-            case 'check':
-                const newTasks = tasks.map(task => {
-                    if (task.name === action.task.name) {
-                        return {
-                            name: task.name,
-                            completed: !action.task.completed,
-                        }
-                    }
-                    return task;
-                })
-                saveToLocalStore("tasks", newTasks);
-                return newTasks;
-            default:
-                break;
-        }
-        return tasks;
+    const updateInput = input => {
+        setInput(input);
     }
-    const storedTasks = getFromLocalStore("tasks");
-    console.log('storedTasks: {}', storedTasks);
 
-    const initialState = isEmpty(storedTasks)
-        ? [{ name: 'First Task', completed: false, }, { name: 'Second Task', completed: false }]
-        : storedTasks;
-
-    const [tasks, dispatch] = useReducer(tasksReducer, initialState);
-    console.log(tasks);
-    saveToLocalStore("tasks", tasks);
-
-    const remainTasksCount = tasks.filter(task => !task.completed).length;
+    const handleAddHabit = () => {
+        console.log(input);
+        addHabit(input);
+        setInput("");
+    }
 
     return (
         <div className='habitWrapper'>
-            <div className='habitList'>
-                <SubTitle title={remainTasksCount === 0 ? 'All goal achieved!' : 'Goal to achieve: ' + remainTasksCount} />
-                <TodoList tasks={tasks} dispatch={dispatch} />
-            </div>
             <div className='habitManager'>
                 <SubTitle title='Habit Manager' />
+                <input value={input} onChange={e => updateInput(e.target.value)}></input>
+                <button onClick={handleAddHabit}>Add Habit</button>
+                <div className='tasks'>
+                    {habits.length > 0 && habits.map(habit => (
+                        <Item key={habit.name} task={habit} onClick={() => {}}/>
+                    ))}
+                </div>
             </div>
         </div>
     );
 }
 
-const mapStateToProps = (state, ownProps) => ({
 
-});
-
-const mapDispatchToProps = {
-
-};
-
-export default connect(mapStateToProps)(MiniHabit);
+export default connect(state => ({ habits: state.habit.habits }), { addHabit })(MiniHabit);
