@@ -1,4 +1,4 @@
-import { ADD_HABIT } from "./actionTypes";
+import { ADD_HABIT, DELETE_HABIT } from "./actionTypes";
 
 let nextHabitId = 0;
 
@@ -10,3 +10,9 @@ export const addHabit = name => ({
     }
 });
 
+export const deleteHabit = name => ({
+    type: DELETE_HABIT,
+    data: {
+        name: name,
+    }
+})

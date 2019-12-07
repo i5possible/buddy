@@ -1,4 +1,4 @@
-import { ADD_HABIT } from "../actionTypes";
+import { ADD_HABIT, DELETE_HABIT } from "../actionTypes";
 
 const initialState = {
     habits: [],
@@ -10,6 +10,11 @@ export default function (state = initialState, action) {
         case ADD_HABIT: {
             return {
                 habits: [...state.habits, action.data],
+            };
+        }
+        case DELETE_HABIT: {
+            return {
+                habits: state.habits.filter(habit => habit.name !== action.data.name),
             };
         }
         default:

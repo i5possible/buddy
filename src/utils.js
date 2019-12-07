@@ -1,5 +1,6 @@
-const isEmpty = (obj) => {
-    if (!obj && obj !== 0 && obj !== '') {
+export const isEmpty = (obj) => {
+    debugger
+    if (!obj || obj === 0 || obj.trim() === '') {
         return true;
     }
     if (Array.prototype.isPrototypeOf(obj) && obj.length === 0) {
@@ -11,7 +12,7 @@ const isEmpty = (obj) => {
     return false;
 };
 
-const saveToLocalStore = (label, content) => {
+export const saveToLocalStore = (label, content) => {
     localStorage.setItem(label, JSON.stringify(content));
 };
 

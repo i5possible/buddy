@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import './index.css';
 import SubTitle from './SubTitle';
-import { addHabit } from "../../redux/actions";
+import { addHabit, deleteHabit } from "../../redux/actions";
 import Item from "./Item";
+import { isEmpty } from "../../utils";
 
-const MiniHabit = ({ habits, addHabit }) => {
+const MiniHabit = ({ habits, addHabit, deleteHabit }) => {
 
     const [input, setInput] = useState("");
 
@@ -13,21 +14,33 @@ const MiniHabit = ({ habits, addHabit }) => {
         setInput(input);
     }
 
+    const hasHabit = () => {
+        return habits.find(habit => habit.name === input.trim())
+    }
+
     const handleAddHabit = () => {
-        console.log(input);
-        addHabit(input);
         setInput("");
+        if (isEmpty(input) || hasHabit()) {
+            return;
+        }
+        addHabit(input);
+    }
+
+    const handleDeleteHabit = name => {
+        deleteHabit(name);
     }
 
     return (
         <div className='habitWrapper'>
             <div className='habitManager'>
-                <SubTitle title='Habit Manager' />
-                <input value={input} onChange={e => updateInput(e.target.value)}></input>
-                <button onClick={handleAddHabit}>Add Habit</button>
-                <div className='tasks'>
+                <SubTitle title={habits.length > 0 ? `Habit Manager(${habits.length})` : 'Habit Manager'} />
+                <div className= 'inputWrapper'>
+                    <input className='habitInput' value={input} onChange={e => updateInput(e.target.value)}></input>
+                    <button className='addHabitButton' onClick={handleAddHabit}>Add Habit</button>
+                </div>
+                <div className='items'>
                     {habits.length > 0 && habits.map(habit => (
-                        <Item key={habit.name} task={habit} onClick={() => {}}/>
+                        <Item key={habit.name} item={habit} onClick={() => { }} onDeleteClick={handleDeleteHabit}/>
                     ))}
                 </div>
             </div>
@@ -36,4 +49,4 @@ const MiniHabit = ({ habits, addHabit }) => {
 }
 
 
-export default connect(state => ({ habits: state.habit.habits }), { addHabit })(MiniHabit);
+export default connect(state => ({ habits: state.habit.habits }), { addHabit, deleteHabit })(MiniHabit);

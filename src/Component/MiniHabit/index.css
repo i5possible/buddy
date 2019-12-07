@@ -14,6 +14,8 @@
 }
 
 .habitManager {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     box-shadow: 0px 7px 20px 5px var(--shadow);
     width: 30%;
@@ -23,7 +25,36 @@
     top: calc(64px + 3rem);
 }
 
-.tasks {
+.inputWrapper {
+    display: flex;
+}
+
+.habitInput {
+    height: 1.4rem;
+    margin: 5px;
+    padding: 2px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    flex: 1;
+}
+
+.addHabitButton {
+    height: 100%;
+    margin: 7px 5px;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    border: none;
+    line-height: 1.4rem;
+    padding: 2px;
+    min-width: 75px;
+}
+
+.addHabitButton:hover {
+    color: white;
+    background-color: var(--p-dark);
+}
+
+.items {
     display: flex;
     flex-direction: column;
     padding: 5px;

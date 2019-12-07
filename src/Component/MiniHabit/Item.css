@@ -10,6 +10,9 @@
 
 .item-wrapper {
     margin: 5px 0;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .checked {
@@ -24,6 +27,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     display: inline-block;
+    flex: 1;
 }
 
 .text-button:hover {
@@ -34,4 +38,19 @@
 .checked:hover {
     background: var(--grey);
     color: var(--light);
+}
+
+.deleteIcon {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: center;
+    padding: 5px;
+}
+
+.deleteIcon:hover {
+    background-color: var(--s-light);
 }
