@@ -1,7 +1,6 @@
 import { GET_HABITS, ADD_HABIT, DELETE_HABIT } from "./actionTypes";
-import util from '../utils';
+import { client } from 'utils';
 
-const { client } = util;
 let nextHabitId = 0;
 
 export const getHabits = () => dispatch => (
