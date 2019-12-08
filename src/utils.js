@@ -1,5 +1,6 @@
+import axios from 'axios';
+
 export const isEmpty = (obj) => {
-    debugger
     if (!obj || obj === 0 || obj.trim() === '') {
         return true;
     }
@@ -20,9 +21,14 @@ export const getFromLocalStore = (label) => {
     return JSON.parse(localStorage.getItem(label));
 };
 
+export const client = axios.create({
+    baseURL: 'http://localhost:3001',
+    timeout: 1000,
+});
 
 export default {
     isEmpty,
     saveToLocalStore,
     getFromLocalStore,
+    client
 };

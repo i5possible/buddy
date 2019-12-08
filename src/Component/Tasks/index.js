@@ -29,14 +29,12 @@ const Tasks = () => {
         return tasks;
     }
     const storedTasks = getFromLocalStore("tasks");
-    console.log('storedTasks: {}', storedTasks);
 
     const initialState = isEmpty(storedTasks)
         ? [{ name: 'First Task', completed: false, }, { name: 'Second Task', completed: false }]
         : storedTasks;
 
     const [tasks, dispatch] = useReducer(tasksReducer, initialState);
-    console.log(tasks);
     saveToLocalStore("tasks", tasks);
 
     const remainTasksCount = tasks.filter(task => !task.completed).length;
