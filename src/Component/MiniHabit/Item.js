@@ -9,7 +9,7 @@ const Item = ({ item, onClick, onDeleteClick }) => {
                 onClick={() => onClick(item)}> 
                 {item.name} 
             </button>
-            <span className="deleteIcon" onClick={() => onDeleteClick(item.name)}>X</span>
+            <span className="deleteIcon" onClick={() => onDeleteClick(item.id)}>X</span>
         </div>
     );
 }

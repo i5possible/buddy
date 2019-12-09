@@ -13,11 +13,10 @@ export default (state = initialState, action) => {
         }
         case DELETE_HABIT: {
             return {
-                habits: state.habits.filter(habit => habit.name !== action.data.name),
+                habits: state.habits.filter(habit => habit.id !== action.id),
             };
         }
         case GET_HABITS: {
-            console.log('action:', JSON.stringify(action.data))
             return {
                 habits: action.data,
             }
