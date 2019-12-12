@@ -24,6 +24,7 @@ input[type="checkbox"] {
   --primary: #40e0d0;
   --p-light: #7fffff;
   --p-dark: #00ad9f;
+  --p-dark-trans: rgba(0, 173, 159, 0.5);
   --shadow: rgba(140, 133, 156, 0.1);
   --secondary: #ff5252;
   --s-light: #ff867f;

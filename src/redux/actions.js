@@ -1,5 +1,5 @@
 import { GET_HABITS, ADD_HABIT, DELETE_HABIT } from "./actionTypes";
-import { client } from 'utils';
+import { client } from './../utils';
 
 let nextHabitId = 0;
 

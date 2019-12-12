@@ -1,0 +1,13 @@
+.frontSide {
+    background-color: var(--s-light);
+}
+
+.backSide {
+    background-color: var(--primary);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

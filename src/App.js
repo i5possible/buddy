@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Component/Header'
 import MiniHabit from './Component/MiniHabit'
 import Content from './Component/Content'
+import Home from './Component/Home'
 import {
     BrowserRouter as Router,
     Switch,
@@ -31,15 +32,6 @@ const App = () => {
             <Header />
             <Content children={routes} />
         </Router>
-    );
-}
-
-
-function Home() {
-    return (
-        <div>
-            <h2>Home</h2>
-        </div>
     );
 }
 
