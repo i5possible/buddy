@@ -46,8 +46,23 @@
     text-align: center;
     vertical-align: center;
     padding: 5px;
+    margin: 0 5px;
 }
 
 .deleteIcon:hover {
     background-color: var(--s-light);
+}
+
+.frequency {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    vertical-align: center;
+    padding: 5px;
+    background-color: var(--s-light);
+    margin: 0 5px;
 }
