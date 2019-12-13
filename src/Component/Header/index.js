@@ -1,32 +1,40 @@
 import React from 'react';
+import classNames from 'classnames'//引入classnames依赖库
 import './index.css';
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
-const Navigation = () => <div className='nav-wrapper'>
-    <div className='nav'>
-        <li className='tab'>
-            <Link to="/" className='link'>Home</Link>
-        </li>
-        <li className='tab'>
-            <Link to="/habit" className='link'>Habit</Link>
-        </li>
-        <li className='tab'>
-            <Link to='/memory' className='link'>Memory</Link>
-        </li>
-        <li className='tab'>
-            <Link to='/principle' className='link'>Principle</Link>
-        </li>
-    </div>
-</div>;
+
+const Navigation = ({history}) => {
+    const currentPath = history.location.pathname;
+    console.log(currentPath);
+
+    const tabs = [
+        { name: 'Home', link: '/'},
+        { name: 'Habit', link: '/habit',className:'link',},
+        { name: 'Memory', link: '/memory',className:'link',},
+        { name: 'Principle', link: '/principle',className:'link',},
+    ]
+    return (<div className='nav-wrapper'>
+        {tabs.map( tab => {
+            console.log(currentPath);
+            return <li key={tab.name} className='tab'>
+                <Link to={tab.link} className={
+                    classNames({ 'link': true, 'selected': currentPath === tab.link })
+                    }>{tab.name}</Link>
+            </li>
+        })}
+    </div>)
+};
 
 const Icon = () => <img src='buddy.png' className='logo' alt='buddy'></img>
 
-const Header = () => {
+const Header = ({history}) => {
+    console.log(history)
     return (
         <div className='header' >
             <div className='header-content'>
                 <Icon />
-                <Navigation />
+                <Navigation history={history}/>
             </div>
         </div>
     );
@@ -36,4 +44,4 @@ Header.propTypes = {
 
 };
 
-export default Header;
+export default withRouter(Header);

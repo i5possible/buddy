@@ -4,7 +4,6 @@ import './FlippyCard.css';
 
 const FlippyCard = (props) => {
     const {frontSideContent, backSideContent} = {...props};
-    console.log(frontSideContent);
     return (
         <Flippy
             flipOnHover={false} // default false
