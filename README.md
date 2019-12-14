@@ -35,9 +35,14 @@ install json-server as mock backend
 sudo npm install -g json-server
 ```
 
-run json-server use mocked data
+run json-server use mock data
 ```
 json-server --watch data/store.json --port 3001
+```
+
+use online mock data
+```
+https://my-json-server.typicode.com/i5possible/buddy/
 ```
 
 install yarn

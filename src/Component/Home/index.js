@@ -17,7 +17,7 @@ const Home = ({ habitTargets, getHabitTargets, ackHabitTarget }) => {
 
     useEffect(() => {
         getHabitTargets();
-        return () => {}
+        return () => { }
     }, []);
 
     return (
@@ -43,4 +43,4 @@ Home.propTypes = {
 
 };
 
-export default connect( state => ({habitTargets: state.habitTargets}), { getHabitTargets, ackHabitTarget })(Home);
+export default connect(state => ({ habitTargets: state.habitTargets }), { getHabitTargets, ackHabitTarget })(Home);

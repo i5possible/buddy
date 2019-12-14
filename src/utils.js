@@ -22,8 +22,8 @@ export const getFromLocalStore = (label) => {
 };
 
 export const client = axios.create({
-    baseURL: 'http://localhost:3001',
-    timeout: 1000,
+    baseURL: 'https://my-json-server.typicode.com/i5possible/buddy/',
+    timeout: 3000,
 });
 
 export const sleep = (time) => {
