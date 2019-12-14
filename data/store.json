@@ -35,5 +35,6 @@
       "name": "dolore",
       "frequency": "daily"
     }
-  ]
+  ],
+  "habitTargets": [{ "name": "Mediation" }, { "name": "Reading" }]
 }

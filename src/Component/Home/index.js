@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
 import SubTitle from '../MiniHabit/SubTitle'
 import './index.css';
 import FlippyCard from './FlippyCard'
 import CompleteIcon from '../../Icon/Complete';
+import { getHabitTargets } from '../../redux/actions'
 
-const habitTargets = [{ name: 'Mediation' }, { name: 'Reading' }];
-
-const Home = ({ habitTargets }) => {
+const Home = ({ habitTargets, getHabitTargets }) => {
 
     const createFrontSideContent = name => (<span className="center largeText">
         {name}
@@ -16,7 +15,12 @@ const Home = ({ habitTargets }) => {
         <CompleteIcon width={100} height={100} color={'LightSlateGray'} />
     </span>);
 
+    useEffect(() => {
+        getHabitTargets();
+        return () => {}
+    }, []);
 
+    console.log("init: " + habitTargets );
     return (
         <div className='habitWrapper'>
             <div className='habitManager'>
@@ -39,12 +43,17 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => {
-    console.log(habitTargets);
     return {
-        habitTargets: habitTargets,
-        // memoryTargets: state.memoryTargets,
-        // principles: state.principles,
+        habitTargets: state.habitTargets,
     }
 };
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => {
+    return {
+        getHabitTargets: () => {
+            dispatch(getHabitTargets())
+        },
+    }
+};
+
+export default connect(mapStateToProps, { getHabitTargets })(Home);

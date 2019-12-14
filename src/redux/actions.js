@@ -1,4 +1,4 @@
-import { GET_HABITS, ADD_HABIT, DELETE_HABIT } from "./actionTypes";
+import { GET_HABITS, ADD_HABIT, DELETE_HABIT, GET_HABIT_TARGETS, ACK_HABIT_TARGET } from "./actionTypes";
 import { client } from './../utils';
 
 let nextHabitId = 0;
@@ -11,10 +11,10 @@ export const getHabits = () => dispatch => (
         });
         nextHabitId = response.data.length;
     }).catch(error => {
-        return {
+        dispatch({
             type: GET_HABITS,
             data: []
-        }
+        })
     })
 );
 
@@ -25,7 +25,6 @@ export const addHabit = name => dispatch => (
         name: name,
         frequency: 'daily',
     }).then(response => {
-        console.log(response);
         dispatch({
             type: ADD_HABIT,
             data: {
@@ -39,10 +38,18 @@ export const addHabit = name => dispatch => (
 
 export const deleteHabit = id => dispatch => (
     client.delete(`/habits/${id}`).then(response => {
-        console.log(response);
         dispatch({
             type: DELETE_HABIT,
-            id: id
+            id: id,
         })
     })
-)
+);
+
+export const getHabitTargets = () => dispatch => (
+    client.get(`/habitTargets`).then(response => {
+        dispatch({
+            type: GET_HABIT_TARGETS,
+            data: response.data,
+        })
+    })
+);

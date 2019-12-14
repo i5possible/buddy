@@ -26,6 +26,10 @@ export const client = axios.create({
     timeout: 1000,
 });
 
+export const sleep = (time) => {
+    return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 export default {
     isEmpty,
     saveToLocalStore,
