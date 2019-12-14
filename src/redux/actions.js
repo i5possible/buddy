@@ -27,11 +27,7 @@ export const addHabit = name => dispatch => (
     }).then(response => {
         dispatch({
             type: ADD_HABIT,
-            data: {
-                id: nextHabitId,
-                name: name,
-                frequency: 'daily',
-            }
+            data: response.data,
         })
     })
 );
@@ -53,3 +49,13 @@ export const getHabitTargets = () => dispatch => (
         })
     })
 );
+
+export const ackHabitTarget = habit => dispatch => (
+    client.put(`/habitTargets/${habit.id}`, {...habit, ack: !habit.ack}).then(response => {
+        console.log(response)
+        dispatch({
+            type: ACK_HABIT_TARGET,
+            data: response.data,
+        })
+    })
+)

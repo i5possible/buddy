@@ -36,5 +36,21 @@
       "frequency": "daily"
     }
   ],
-  "habitTargets": [{ "name": "Mediation" }, { "name": "Reading" }]
+  "habitTargets": [
+    {
+      "id": "928cdb51-dc49-4999-9f54-5b66f60d3200",
+      "name": "Mediation",
+      "ack": false
+    },
+    {
+      "id": "928cdb51-dc49-4999-9f54-5b66f60d3201",
+      "name": "Reading",
+      "ack": false
+    },
+    {
+      "id": "928cdb51-dc49-4999-9f54-5b66f60d3202",
+      "name": "Fitness",
+      "ack": false
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-.habitWrapper {
+.targetWrapper {
     width: 80%;
     height: 100%;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.habitManager {
+.targetManager {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -17,8 +17,9 @@
 }
 
 .targets {
-    display: inline-flex;
-    padding: .6rem
+    display: flex;
+    padding: .5rem;
+    flex-flow:row wrap;
 }
 
 .largeText {
