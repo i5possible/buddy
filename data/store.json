@@ -40,7 +40,7 @@
     {
       "id": "928cdb51-dc49-4999-9f54-5b66f60d3200",
       "name": "Mediation",
-      "ack": false
+      "ack": true
     },
     {
       "id": "928cdb51-dc49-4999-9f54-5b66f60d3201",

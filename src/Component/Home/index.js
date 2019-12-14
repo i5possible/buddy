@@ -20,7 +20,6 @@ const Home = ({ habitTargets, getHabitTargets, ackHabitTarget }) => {
         return () => {}
     }, []);
 
-    console.log("init: " + habitTargets );
     return (
         <div className='targetWrapper'>
             <div className='targetManager'>

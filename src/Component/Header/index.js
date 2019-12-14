@@ -6,7 +6,6 @@ import { withRouter, Link } from "react-router-dom";
 
 const Navigation = ({history}) => {
     const currentPath = history.location.pathname;
-    console.log(currentPath);
 
     const tabs = [
         { name: 'Home', link: '/'},
@@ -29,7 +28,6 @@ const Navigation = ({history}) => {
 const Icon = () => <img src='buddy.png' className='logo' alt='buddy'></img>
 
 const Header = ({history}) => {
-    console.log(history)
     return (
         <div className='header' >
             <div className='header-content'>
