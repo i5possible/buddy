@@ -37,10 +37,10 @@ sudo npm install -g json-server
 
 run json-server use mock data
 ```
-json-server --watch data/store.json --port 3001
+json-server --watch db.json --port 3001
 ```
 
-use online mock data
+use online mock data, this use the db.json data.
 ```
 https://my-json-server.typicode.com/i5possible/buddy/
 ```
@@ -60,6 +60,9 @@ run application using yarn
 yarn install
 yarn start
 ```
+
+## CI
+Using AWS Amplify as CI system and all changes to master branch will be deployed to [HERE](https://master.d144za9srm7y7t.amplifyapp.com/)
 
 ## Things will be added to this project
 
